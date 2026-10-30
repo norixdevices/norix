@@ -29,24 +29,29 @@ const quickReadoutDefinitions = {
     ['Pressure accuracy', 'Pressure accuracy'],
     ['Pulse range', 'Pulse measurement range']
   ],
+  'bnx-1151': [
+    ['Pressure range', 'Pressure measurement range'],
+    ['Pressure accuracy', 'Pressure accuracy'],
+    ['Pulse range', 'Pulse measurement range']
+  ],
   'pnx-1301': [
     ['SpO₂ range', 'SpO₂ measuring range'],
     ['Pulse rate', 'Pulse rate'],
     ['Measurement time', 'Measurement time']
   ],
   'tnx-1201': [
-    ['Measurement time', 'Measurement time'],
+    ['Measuring period', 'Measuring period'],
     ['Measurement range', 'Measurement range'],
-    ['Accuracy', 'Accuracy']
+    ['Maximum error', 'Maximum error']
   ]
 };
 
 function quickReadoutRows(item) {
   const definitions = quickReadoutDefinitions[item.id] ?? [];
   const featureValues = item.features ?? [];
-  return definitions.flatMap(([displayLabel, sourceLabel]) => {
-    const specification = item.specifications?.find(([label]) => label === sourceLabel)?.[1];
-    const feature = featureValues.find((entry) => entry.startsWith(`${sourceLabel}:`));
+  return definitions.flatMap(([displayLabel, specificationLabel]) => {
+    const specification = item.specifications?.find(([label]) => label === specificationLabel)?.[1];
+    const feature = featureValues.find((entry) => entry.startsWith(`${specificationLabel}:`));
     const value = specification ?? (feature ? feature.slice(feature.indexOf(':') + 1).trim() : null);
     return value ? [[displayLabel, value]] : [];
   });
@@ -107,7 +112,7 @@ function renderNotFound() {
 function renderProduct(item) {
   document.title = `${item.name} ${item.model} | NORIX`;
   const meta = document.querySelector('meta[name="description"]');
-  if (meta) meta.content = `${item.name} ${item.model}: product overview, features, and specifications from NORIX packaging.`;
+  if (meta) meta.content = `${item.name} ${item.model}: features, intended use, technical specifications, and included accessories.`;
   main.replaceChildren();
 
   const breadcrumb = node('div', 'detail-breadcrumb');
@@ -126,7 +131,7 @@ function renderProduct(item) {
   image.height = item.imageHeight;
   image.fetchPriority = 'high';
   image.decoding = 'async';
-  gallery.append(image, node('p', 'image-source-label', 'Product photograph'));
+  gallery.append(image);
 
   const intro = node('div', 'detail-intro');
   intro.append(
@@ -136,9 +141,8 @@ function renderProduct(item) {
     node('p', 'detail-description', item.description)
   );
   const warranty = node('p', 'detail-warranty');
-  warranty.append(node('span', '', 'Warranty'), node('strong', '', item.warranty || 'Not specified in the supplied documents.'));
+  warranty.append(node('span', '', 'Warranty'), node('strong', '', item.warranty || 'Contact NORIX for details'));
   intro.append(warranty);
-  if (item.specificationNotice) intro.append(node('p', 'source-notice', item.specificationNotice));
   const enquiry = node('a', 'detail-enquiry', 'Ask about this model ↗');
   enquiry.href = `index.html#contact`;
   intro.append(enquiry);
@@ -180,20 +184,18 @@ function renderProduct(item) {
       specs.append(tableWrap);
     }
   } else {
-    specs.append(node('p', 'spec-empty', 'Not specified for this model in the supplied documents.'));
+    specs.append(node('p', 'spec-empty', 'Contact NORIX for product specifications.'));
   }
-  if (item.specificationNotice) specs.append(node('p', 'source-notice', item.specificationNotice));
-  if (item.sourceLabel) specs.append(node('p', 'source-label', item.sourceLabel));
   main.append(specs);
 
   const usage = makeSection('03 / APPLICATIONS', 'Intended use', 'usage-section');
   if (item.applications?.length) usage.append(makeList(item.applications));
-  else usage.append(node('p', 'spec-empty', 'Not specified in the supplied documents.'));
+  else usage.append(node('p', 'spec-empty', 'Contact NORIX for intended-use information.'));
   main.append(usage);
 
-  const packageSection = makeSection('04 / PACKAGE CONTENTS', 'Included with the product', 'package-section');
+  const packageSection = makeSection('04 / INCLUDED ACCESSORIES', 'Included with the product', 'package-section');
   if (item.accessories?.length) packageSection.append(makeList(item.accessories));
-  else packageSection.append(node('p', 'spec-empty', 'Package contents are not specified for this model in the supplied documents.'));
+  else packageSection.append(node('p', 'spec-empty', 'Contact NORIX for included-accessory information.'));
   main.append(packageSection);
 
   const relatedIds = new Set(item.related ?? []);
