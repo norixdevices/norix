@@ -7,7 +7,7 @@ window.NORIX_PRODUCTS = {
       model: 'BNX-1101',
       category: 'Blood pressure monitoring',
       description: 'An automatic upper-arm blood pressure monitor with an LCD display, memory recall, and arrhythmia detection.',
-      image: 'images/product-bnx-1101.jpg',
+      image: 'images/product-bnx-1101.png',
       imageAlt: 'NORIX BNX-1101 blood pressure monitor, front view',
       imageWidth: 505,
       imageHeight: 505,

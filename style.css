@@ -97,3 +97,17 @@ html.motion-ready [data-reveal].is-visible{opacity:1;transform:translateY(0)}
 @media(max-width:800px){.detail-overview{grid-template-columns:1fr 1fr;gap:34px}.detail-gallery{min-height:390px}.feature-list{grid-template-columns:repeat(2,minmax(0,1fr))}.related-links{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:600px){.detail-breadcrumb{padding:17px 0;gap:8px;font-size:8px}.detail-overview{grid-template-columns:1fr;gap:34px;padding-top:32px}.detail-gallery{min-height:330px;max-height:440px}.detail-gallery img{max-height:440px;padding:24px}.detail-intro h1{font-size:clamp(44px,12vw,65px)}.detail-description{font-size:13px}.detail-section{padding:60px 0}.detail-section h2{margin-bottom:25px}.feature-list{grid-template-columns:1fr}.feature-list li{min-height:0;padding:16px 0}.spec-table-wrap table{font-size:11px}.spec-table-wrap th,.spec-table-wrap td{padding:11px 12px 11px 0}.spec-table-wrap th{width:43%}.usage-section .detail-list,.package-section .detail-list{grid-template-columns:1fr;gap:8px}.related-links{grid-template-columns:1fr}.related-link{min-height:96px}.hero-product-link{inset:16px 0}.art-index,.art-caption{font-size:8px}}
 @media(prefers-reduced-motion:reduce){.hero-product-link{animation:none!important;opacity:1!important;transform:none!important}.product-visual img,.related-link{transition:none!important}}
+
+/* Brand assets and isolated product photography */
+.brand-logo-link{display:inline-flex;align-items:center;width:max-content;line-height:0}
+.brand-logo{display:block;width:clamp(120px,11vw,152px);height:auto;object-fit:contain}
+.footer-brand-link .brand-logo{width:clamp(126px,12vw,164px)}
+.hero-art{width:100%;max-width:580px;justify-self:center;margin-left:0}
+.hero h1{font-size:clamp(62px,7.2vw,108px)}
+.hero-product{width:min(72%,380px);height:72%;padding:0;mix-blend-mode:normal}
+.product-visual,.detail-gallery{background:transparent!important}
+.product-visual img,.detail-gallery img{mix-blend-mode:normal}
+.manifesto:after{display:none}
+@media(max-width:800px){.hero h1{font-size:clamp(61px,8vw,88px)}}
+@media(max-width:600px){.brand-logo{width:112px}.footer-brand-link .brand-logo{width:132px}.hero-art{width:100%;height:320px}.hero-product{width:min(82%,380px);height:78%}}
+@media(prefers-reduced-motion:reduce){.hero-product{transform:none!important}}
