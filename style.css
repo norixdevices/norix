@@ -30,7 +30,6 @@ html.motion-ready [data-reveal].is-visible{opacity:1;transform:translateY(0)}
 @media(max-width:600px){.hero-line{padding-bottom:.08em;margin-bottom:-.08em}.product-details{margin-bottom:16px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.hero-line>span,.hero-product,.bottom-rule:after{animation:none!important}.hero-product{transform:translate(-50%,-50%)!important}html.motion-ready [data-reveal]{opacity:1;transform:none;transition:none}}
 
-/* Product photography uses only the supplied NORIX product images. */
 .hero-art{background:transparent;overflow:visible}
 .hero-art:before,.hero-art .orbit,.hero-art .art-grid{display:none}
 .hero-product-link{position:absolute;z-index:1;inset:0;display:grid;place-items:center;animation:product-image-arrive 1.1s .15s cubic-bezier(.2,.75,.25,1) both}
@@ -44,7 +43,6 @@ html.motion-ready [data-reveal].is-visible{opacity:1;transform:translateY(0)}
 .product-visual:focus-visible{outline:2px solid var(--burgundy);outline-offset:4px}
 .product-info h3 a{transition:color .2s ease}
 .product-info h3 a:hover,.product-info h3 a:focus-visible{color:var(--burgundy)}
-.model-notice{font-size:10px!important;line-height:1.65!important;color:#6e332e!important;border-left:2px solid var(--burgundy);padding-left:10px;margin:-12px 0 17px!important}
 .product-row:nth-child(4){--motion-delay:190ms}
 
 .product-detail-body{background:var(--paper)}
@@ -55,7 +53,6 @@ html.motion-ready [data-reveal].is-visible{opacity:1;transform:translateY(0)}
 .detail-overview{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(320px,.95fr);gap:clamp(42px,9vw,130px);align-items:center;padding:clamp(46px,7vw,95px) 0 clamp(60px,9vw,120px);border-bottom:1px solid var(--line)}
 .detail-gallery{min-height:clamp(340px,43vw,590px);display:grid;place-items:center;position:relative;background:#fff}
 .detail-gallery img{display:block;width:100%;height:100%;max-height:590px;object-fit:contain;padding:clamp(18px,4vw,56px)}
-.image-source-label{position:absolute;left:18px;bottom:8px;color:#77786f;font:8px/1.5 var(--mono);letter-spacing:.08em;text-transform:uppercase}
 .detail-intro{max-width:600px}
 .detail-intro .eyebrow{margin-bottom:25px}
 .detail-model{font:11px/1.5 var(--mono);letter-spacing:.12em;color:var(--burgundy);margin:0 0 12px}
@@ -63,7 +60,6 @@ html.motion-ready [data-reveal].is-visible{opacity:1;transform:translateY(0)}
 .detail-description{max-width:510px;color:#5e5f58;font-size:15px;line-height:1.85;margin:0 0 29px}
 .detail-warranty{display:grid;gap:5px;border-top:1px solid var(--line);padding:15px 0;margin:0 0 18px;font:10px/1.5 var(--mono);color:#707169}
 .detail-warranty strong{font:600 13px/1.6 var(--sans);color:var(--ink)}
-.source-notice{max-width:560px;background:#fff;border-left:2px solid var(--burgundy);padding:15px 17px;color:#5e504d;font-size:12px;line-height:1.75;margin:18px 0 25px}
 .detail-enquiry{display:inline-block;color:var(--burgundy);border-bottom:1px solid var(--burgundy);padding:0 0 9px;font-size:12px;font-weight:700}
 .detail-section{padding:clamp(55px,7vw,95px) 0;border-bottom:1px solid var(--line)}
 .detail-section>.eyebrow{margin:0 0 17px}
@@ -79,7 +75,6 @@ html.motion-ready [data-reveal].is-visible{opacity:1;transform:translateY(0)}
 .spec-table-wrap th{width:38%;font-weight:600;color:#55564f}
 .spec-table-wrap td{color:var(--ink)}
 .spec-empty{color:#63645d;font-size:13px;line-height:1.75;margin:0}
-.source-label{font:9px/1.7 var(--mono);color:#76776f;margin:19px 0 0}
 .usage-section .detail-list,.package-section .detail-list{list-style:none;max-width:850px;padding:0;margin:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 42px}
 .detail-list li{font-size:13px;line-height:1.75;color:#55564f;padding:0 0 12px;border-bottom:1px solid var(--line)}
 .related-links{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
@@ -112,7 +107,6 @@ html.motion-ready [data-reveal].is-visible{opacity:1;transform:translateY(0)}
 @media(max-width:600px){.brand-logo{width:112px}.footer-brand-link .brand-logo{width:132px}.hero-art{width:100%;height:320px}.hero-product{width:min(82%,380px);height:78%}}
 @media(prefers-reduced-motion:reduce){.hero-product{transform:none!important}}
 
-/* NORIX motion and green accent details, sampled from the supplied packaging. */
 @view-transition{navigation:auto}
 ::view-transition-old(root){animation:page-leave .14s ease-out both}
 ::view-transition-new(root){animation:page-arrive .3s cubic-bezier(.2,.7,.2,1) both}
@@ -149,3 +143,67 @@ html.motion-ready [data-reveal].is-visible{opacity:1;transform:translateY(0)}
 .detail-section[data-reveal],.detail-overview[data-reveal],.quick-readout[data-reveal]{will-change:opacity,transform}
 @media(max-width:600px){.quick-metrics{grid-template-columns:1fr}.quick-metric{padding:17px 0;border-bottom:1px solid var(--line)}.quick-metric:last-child{border-bottom:0}.quick-metric:before{margin-bottom:10px}.spec-grid{grid-template-columns:1fr}.spec-grid-item:nth-last-child(-n+2){border-bottom:1px solid var(--line)}.spec-grid-item:last-child{border-bottom:0}}
 @media(prefers-reduced-motion:reduce){::view-transition-old(root),::view-transition-new(root){animation:none!important}.hero-product{transition:none!important}.detail-section[data-reveal],.detail-overview[data-reveal],.quick-readout[data-reveal]{will-change:auto}}
+
+/* Readable type scale for product-led browsing. */
+body{font-size:16px;line-height:1.65}
+.header-note,.eyebrow,.section-aside,.product-kicker,.visual-caption,.art-index,.art-caption,.hero-bottom,.hero-side-label,.manifesto-foot,.contact-index,.footer-bottom,.back-top{font-size:11px}
+.nav-links{font-size:15px}
+.hero-foot p{font-size:17px;line-height:1.75;max-width:340px}
+.text-link,.arrow-link,.light-link,.detail-enquiry{font-size:14px}
+.intro-strip>span:first-child{font-size:11px}
+.products-heading p{font-size:16px;line-height:1.75;max-width:340px}
+.product-kicker{font-size:11px}
+.model-line{font-size:11px!important}
+.product-info h3{font-size:clamp(30px,3.2vw,44px);line-height:1.12}
+.product-info>p:not(.product-kicker){font-size:16px;line-height:1.75;max-width:390px}
+.product-note{font:13px/1.75 var(--mono)}
+.manifesto-copy,.contact-copy p{font-size:16px;line-height:1.8}
+.contact-details>a{font-size:15px}
+.contact-details p{font-size:13px}
+.contact-form label{font-size:12px}
+.contact-form label>span{font-size:11px}
+.contact-form input,.contact-form textarea{font-size:16px}
+.submit-button{font-size:14px}
+.form-status{font-size:12px}
+.detail-breadcrumb{font-size:12px}
+.detail-model{font-size:12px}
+.detail-intro h1{font-size:clamp(48px,5.7vw,82px);line-height:1.02}
+.detail-description{font-size:17px;line-height:1.8}
+.detail-warranty{font-size:12px}
+.detail-warranty strong{font-size:15px}
+.detail-section h2{font-size:clamp(34px,4vw,52px);line-height:1.12}
+.feature-list li{font-size:16px;line-height:1.7}
+.spec-table-wrap table{font-size:15px;line-height:1.7}
+.spec-table-wrap th,.spec-table-wrap td{padding:16px 20px 16px 0}
+.spec-table-wrap th{font-weight:700}
+.spec-empty{font-size:15px}
+.detail-list li{font-size:15px;line-height:1.8}
+.related-model{font-size:11px}
+.related-name{font-size:16px}
+.quick-readout>h2{font-size:clamp(32px,3.5vw,46px)}
+.quick-metric dt,.spec-grid-item dt{font-size:12px}
+.quick-metric dd{font-size:clamp(20px,2.3vw,32px)}
+.spec-grid-item dd{font-size:20px}
+@media(max-width:800px){.nav-links{font-size:14px}.hero-foot p{font-size:16px}.product-info h3{font-size:32px}}
+@media(max-width:600px){
+  body{font-size:16px}
+  .hero .eyebrow,.section-top .eyebrow,.section-aside{font-size:10px}
+  .hero-foot p,.products-heading p,.product-info>p:not(.product-kicker),.manifesto-copy,.contact-copy p{font-size:15px}
+  .product-kicker{font-size:10px}
+  .product-info h3{font-size:30px}
+  .arrow-link,.text-link,.light-link,.detail-enquiry{font-size:13px}
+  .manifesto-foot{font-size:9px}
+  .contact-form label{font-size:12px}
+  .contact-form label>span{font-size:11px}
+  .form-status{font-size:12px}
+  .detail-breadcrumb{font-size:10px}
+  .detail-description{font-size:16px}
+  .detail-section h2{font-size:34px}
+  .feature-list li{font-size:15px}
+  .spec-table-wrap table{font-size:14px}
+  .spec-table-wrap th,.spec-table-wrap td{padding:13px 12px 13px 0}
+  .detail-list li{font-size:15px}
+  .quick-metric dt,.spec-grid-item dt{font-size:11px}
+  .quick-metric dd,.spec-grid-item dd{font-size:19px}
+  .footer-bottom,.back-top{font-size:9px}
+}
